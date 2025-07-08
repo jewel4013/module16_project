@@ -1,5 +1,6 @@
 
 @extends('partials.layout')
+@section('title', 'Contact Page')
 
 @section('mainSection')
     @extends('partials.navbar')

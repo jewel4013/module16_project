@@ -1,4 +1,6 @@
 @extends('partials.layout')
+@section('title', 'Resume Page')
+
 @section('mainSection')
     @extends('partials.navbar')   
 
