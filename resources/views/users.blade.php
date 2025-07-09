@@ -5,7 +5,7 @@
 @section('mainSection')
     @extends('partials.navbar')
     <!-- Page content-->
-    <section class="py-5">
+    <section class="py-2">
         <div class="container px-5">
             <!-- Contact form-->
             <div class="bg-light rounded-4 py-5 px-4 px-md-5">
@@ -41,8 +41,13 @@
                                 </tr>
                             @endforeach 
                         </tbody>
+
+                        
                     @endif
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{ $userData->links() }}
+                </div>
 
 
                 {{-- <div class="text-center mb-5">

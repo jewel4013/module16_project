@@ -8,7 +8,7 @@
 
     
     <!-- Page content-->
-    <section class="py-5">
+    <section class="py-2">
         <div class="container px-5">
             <!-- Contact form-->
             <div class="bg-light rounded-4 py-5 px-4 px-md-5">
