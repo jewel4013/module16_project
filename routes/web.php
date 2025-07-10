@@ -18,3 +18,4 @@ Route::get('/contact', function () {
 
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users/create', [UserController::class, 'create'])->name('user-create');
+Route::post('/users/create', [UserController::class, 'store'])->name('user-store');

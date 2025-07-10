@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('mobile');
             $table->string('otp');
             $table->string('email');
-            $table->timestamp('email_verified_at');
+            $table->timestamp('email_verified_at')->default(now());
             $table->string('password');
-            $table->string('remember_token');
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(7);
+        $users = User::paginate(13);
         return view('users', ['userData' => $users]);
     }
 
@@ -29,7 +29,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
+            'mobile' => 'required|min:11|numeric',
+            'otp' => 'required|min:8|numeric',            
+        ]);
+        User::create($request->except('_token'));
+        session()->flash('success', 'User update successfull.');
+        return redirect()->route('users');
     }
 
     /**
