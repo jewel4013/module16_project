@@ -1,4 +1,3 @@
-
 @extends('partials.layout')
 @section('title', 'Users Page')
 
@@ -14,17 +13,22 @@
                         <h2>Here is all users</h2>
                     </div>
                     <div class="">
-                        <a href="{{route('user-create')}}" class="btn btn-primary">Add more user.</a>
+                        <a href="{{ route('user-create') }}" class="btn btn-primary">Add more user</a>
                     </div>
 
                 </div>
                 <hr>
+                {{-- @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif --}}
                 {{-- All users showing in this table --}}
-                <table class="table table-striped"> 
-                    
+                <table class="table table-striped">
+
                     @if ($userData->isEmpty())
-                        <p>No data available</p> 
-                    @else                   
+                        <p>No data available</p>
+                    @else
                         <thead>
                             <tr>
                                 <th>Sl</th>
@@ -34,17 +38,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($userData as $user )
-                                <tr>                                    
-                                    <td>{{$user->id}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->mobile}}</td>
+                            @foreach ($userData as $user)
+                                <tr>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->mobile }}</td>
                                 </tr>
-                            @endforeach 
+                            @endforeach
                         </tbody>
 
-                        
+
                     @endif
                 </table>
                 <div class="d-flex justify-content-center">
@@ -53,7 +57,5 @@
             </div>
         </div>
     </section>
-    
+
 @endsection
-
-

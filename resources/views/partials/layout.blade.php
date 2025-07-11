@@ -45,9 +45,17 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script>
-           
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" ></script>
+        <script type="text/javascript">
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+            }
+           @if (session('success'))
+                toastr.success("{{ session('success') }}")
+           @endif
         </script>
     </body>
 </html>

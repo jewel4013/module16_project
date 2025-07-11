@@ -3,6 +3,12 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/error', function(){
+    throw new Exception('This is for texting.');
+    // abort(500);
+});
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
