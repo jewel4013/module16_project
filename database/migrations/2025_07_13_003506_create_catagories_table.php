@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('catagories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                    ->constrained()
+                    ->cascadeOnDelete()
+                    ->cascadeOnUpdate();
             $table->string('name');
-            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

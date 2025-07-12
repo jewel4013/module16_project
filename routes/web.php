@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +9,9 @@ Route::get('/error', function(){
     // abort(500);
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('welcome');
+Route::get('/', function(){
+    return view('welcome');
+})->name('welcome');
 Route::get('/resume', function () {
     return view('resume');
 })->name('resume');
