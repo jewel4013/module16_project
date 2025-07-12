@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -37,7 +38,20 @@ class UserController extends Controller
             'otp' => 'required|min:8|numeric',            
         ]);
         User::create($request->except('_token'));
+
+
+        
         session()->flash('success', 'User update successfull.');
+        Log::info('Hei, a new user is insterted. The user data are..: ', [
+            // 'name' => $request->name, 
+            // 'email' => $request->email, 
+            // 'mobile' => $request->mobile
+            $request->except('_token'),
+            'user-agent' => $request->header('user-agent'),
+            'ip' => $request->ip(),
+            'url' => $request->url(),
+            'method' => $request->method()
+        ]);
         return redirect()->route('users');
     }
 
