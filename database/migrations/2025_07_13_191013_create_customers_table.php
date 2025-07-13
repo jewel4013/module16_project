@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');            
             $table->string('email');
             $table->string('mobile');
-            $table->bigInteger('user_id');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

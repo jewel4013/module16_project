@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('invoice_products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('invoice_id');
-            $table->bigInteger('product_id');
+            $table->foreignId('invoice_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->bigInteger('user_id');
             $table->string('qty');
             $table->string('sale_price');

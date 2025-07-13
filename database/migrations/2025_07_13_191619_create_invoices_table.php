@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('discount');
             $table->string('vat');
             $table->string('payable');
-            $table->bigInteger('user_id');
-            $table->bigInteger('customer_id');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('customer_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
